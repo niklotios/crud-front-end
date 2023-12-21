@@ -43,7 +43,7 @@ const Login = () => {
   
   
     return (
-      <Grid spacing={0} alignitems="center" justify="center">
+      <Grid xs={6} alignitems="center" justify="center">
         <Paper elevation={3} style={{ padding: 16, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant="h5">Login</Typography>
           <form style={{ width: '100%', marginTop: 16 }}></form>
