@@ -14,6 +14,8 @@ import {
 import axios from "axios";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { flexbox } from "@mui/system";
+import InsertCategory from "../components/InsertCategory";
+import UpdateCategory from "../components/UpdateCategory";
 
 const Category = () => {
     const [category,setCategory] = useState([]);
@@ -35,7 +37,8 @@ const Category = () => {
 
     return (
        
-        <Grid container direction="column" xs={12} alignItems="center" justifyContent={"center"}>
+        <Grid container direction="column" alignItems="center" justifyContent={"center"} spacing={3}>
+        <Grid item xs={12}> Category Page</Grid>
         <Grid
          item 
          className="classes.centerColumn"
@@ -68,6 +71,12 @@ const Category = () => {
                 </TableBody>
             </Table>
         </TableContainer>
+        </Grid>
+        <Grid item xs={6}>
+            <InsertCategory></InsertCategory>
+        </Grid>
+        <Grid item xs={6}>
+            <UpdateCategory></UpdateCategory>
         </Grid>
         </Grid>   
        

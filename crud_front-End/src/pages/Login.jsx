@@ -43,11 +43,15 @@ const Login = () => {
   
   
     return (
-      <Grid xs={6} alignitems="center" justify="center">
+      <Grid container xs={12} direction="column" alignItems="center" justifyContent={"center"} spacing={3}  >
+        <Grid item xs={12}>
+          <Typography variant="h5">Welcome to our CRUD Application</Typography>
+        </Grid>
+        <Grid item xs={12} >
         <Paper elevation={3} style={{ padding: 16, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Typography variant="h5">Login</Typography>
           <form style={{ width: '100%', marginTop: 16 }}></form>
-
+            
           <TextField
           variant="outlined"
           margin="normal"
@@ -81,6 +85,7 @@ const Login = () => {
           Log In
           </Button>
         </Paper>
+        </Grid>
       </Grid>
     );
   };
