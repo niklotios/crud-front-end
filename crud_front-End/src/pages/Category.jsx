@@ -16,6 +16,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { flexbox } from "@mui/system";
 import InsertCategory from "../components/InsertCategory";
 import UpdateCategory from "../components/UpdateCategory";
+import { Link } from "react-router-dom";
 
 const Category = () => {
     const [category,setCategory] = useState([]);
@@ -64,6 +65,16 @@ const Category = () => {
                             onClick={()=> handleDelete(category.categoryId)}
                             endIcon={<DeleteIcon/>}>
                                 Delete
+                            </Button>
+                        </TableCell>
+                        <TableCell>
+                        {/* Link to the products page for the current category */}
+                            <Button
+                            component={Link}
+                            to={`/showCategory/showProducts/${category.categoryName}`}
+                            variant="contained"
+                            color="primary">
+                            View Products
                             </Button>
                         </TableCell>
                     </TableRow>

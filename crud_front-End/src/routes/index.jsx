@@ -4,6 +4,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import Login from "../pages/Login";
 import Logout from "../pages/Logout";
 import Category from "../pages/Category";
+import ProductPage from "../pages/ProductPage";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -25,6 +26,10 @@ const Routes = () => {
         {
           path: "/showCategory/logout",
           element: <Logout/>,
+        },
+        {
+          path: "/showCategory/showProducts/:categoryName",
+          element:<ProductPage/>
         },
       ],
     },
