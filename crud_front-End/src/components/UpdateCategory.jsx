@@ -69,7 +69,7 @@ const UpdateCategory = ({ onUpdateCategory }) => {
   };
 
   return (
-    <Paper elevation={3}>
+    <Paper elevation={3} style={{ padding: 16, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Typography variant="h5">Update Category</Typography>
       <form onSubmit={handleSubmit}>
         <TextField

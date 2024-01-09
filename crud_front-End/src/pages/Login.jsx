@@ -1,6 +1,6 @@
 import { useAuth } from "../provider/authProvider";
 import { useNavigate } from "react-router-dom";
-import { Paper, TextField, Button, Typography, Container, Grid } from '@mui/material';
+import { Paper, TextField, Button, Typography, Container, Grid, Snackbar, Alert } from '@mui/material';
 import { useState } from "react";
 import LoginService from "../services/login-service";
 import axios from "axios";
@@ -11,6 +11,8 @@ const Login = () => {
 
     const [email,setEmail]= useState('');
     const [password, setPassword]=useState('');
+
+    const [error, setError] = useState(null);
 
     const onChangeEmail = (e) => {
       const email = e.target.value;
@@ -38,7 +40,13 @@ const Login = () => {
         navigate("/showCategory");
       }
     )
-      //navigate("/showCategory", { replace: true });
+    .catch((error)=> {
+      setError("Invalid credentials. PLease try again.")
+    })
+    };
+
+    const handleCloseSnackbar = () => {
+      setError(null);
     };
   
   
@@ -86,6 +94,9 @@ const Login = () => {
           </Button>
         </Paper>
         </Grid>
+        <Snackbar open={error} autoHideDuration={4000} onClose={handleCloseSnackbar}>
+          <Alert severity="error" onClose={handleCloseSnackbar}>{error}</Alert>
+        </Snackbar>
       </Grid>
     );
   };

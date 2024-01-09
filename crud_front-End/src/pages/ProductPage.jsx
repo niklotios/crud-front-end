@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { Button, Grid, Paper, TableBody, TableCell, TableContainer, TableHead, TableRow, Table } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
+import Navbar from "../components/Navbar";
+import InsertProduct from "../components/InsertProduct";
 
 const ProductPage = () => {
     const {categoryName} = useParams();
@@ -27,6 +29,7 @@ const ProductPage = () => {
     return (
 
         <Grid container direction="column" alignItems="center" justifyContent={"center"} spacing={3}>
+            <Navbar></Navbar>
             <Grid item xs={12}>Products for Category {categoryName}</Grid>
             <Grid item xs={6} display={"flex"} justifyContent={"center"}>
                 <TableContainer component={Paper}>
@@ -60,6 +63,9 @@ const ProductPage = () => {
                         </TableBody>
                     </Table>
                 </TableContainer>
+            </Grid>
+            <Grid item xs={6} display={"flex"} justifyContent={'center'}>
+                <InsertProduct/>
             </Grid>
         </Grid>
         // <div>

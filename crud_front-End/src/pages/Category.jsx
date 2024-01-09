@@ -17,6 +17,7 @@ import { flexbox } from "@mui/system";
 import InsertCategory from "../components/InsertCategory";
 import UpdateCategory from "../components/UpdateCategory";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Category = () => {
     const [category,setCategory] = useState([]);
@@ -39,6 +40,7 @@ const Category = () => {
     return (
        
         <Grid container direction="column" alignItems="center" justifyContent={"center"} spacing={3}>
+            <Navbar/>
         <Grid item xs={12}> Category Page</Grid>
         <Grid
          item 
@@ -46,7 +48,7 @@ const Category = () => {
          display="flex"
          justifyContent={"center"}
         >
-         <TableContainer component={Paper}>
+         <TableContainer component={Paper} elevation={3}>
             <Table>
                 <TableHead>
                     <TableRow>

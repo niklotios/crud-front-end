@@ -3,25 +3,31 @@ import { Paper, TextField, Button, Typography,Snackbar, Alert } from '@mui/mater
 import MuiAlert from '@mui/material/Alert';
 import axios from 'axios';
 
-const InsertCategory = ({onCategoryAdded}) => {
-    const [categoryName, setCategoryName] = useState('');
+const InsertProduct = ({onProductAdded}) => {
+    const [productName, setProductName]= useState('');
+    const [price,setPrice]=useState('');
+    const [productSerial, setProductSerial]=useState('');
+    const [categoryName, setCategoryName]= useState('');
+
     const [error,setError]=useState('');
     const [snackbarOpen, setSnackbarOpen]= useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState('');
 
+    //const {productName, price, productSerial, categoryName}=inputs;
+
     useEffect(() => {
         if (snackbarOpen) {
-          if (snackbarSeverity === 'success' && onCategoryAdded) {
+          if (snackbarSeverity === 'success' && onProductAdded) {
             // Call the callback function passed from the parent component
             // to inform it that a category has been added successfully.
-            onCategoryAdded();
+            onProductAdded();
           } else if (snackbarSeverity === "error") {
             // Clear error state when Snackbar is closed
             setError('');
           }
         }
-      }, [snackbarOpen, snackbarSeverity, onCategoryAdded]);
+      }, [snackbarOpen, snackbarSeverity, onProductAdded]);
 
     const handleCloseSnackBar = () => {
         setSnackbarOpen(false);
@@ -31,17 +37,21 @@ const InsertCategory = ({onCategoryAdded}) => {
         e.preventDefault();
 
         try {
-            await axios.post(`http://localhost:8080/api/v1/category`,{categoryName});
-            setCategoryName('');
+            await axios.post(`http://localhost:8080/api/v1/product`,{
+                productName,
+                productSerial,
+                price,
+                categoryName,
+            });
             setError('');
-            setSnackbarMessage(' Category added succesfully! Please refresh page.');
+            setSnackbarMessage(' Product added succesfully!');
             setSnackbarSeverity('success')
             setSnackbarOpen(true);
         } catch (error) {
-            setSnackbarMessage('Error adding category')
+            setSnackbarMessage('Error adding product')
             setSnackbarSeverity('error');
             setSnackbarOpen(true);
-            setError('Error adding category');
+            setError('Error adding product');
             console.error(error);
         }
     };
@@ -51,13 +61,37 @@ const InsertCategory = ({onCategoryAdded}) => {
             <Typography variant='h5'>Add New Category</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
-                label="Category Name"
+                label="Product Name"
+                fullWidth
+                margin='normal'
+                variant='outlined'
+                value={productName}
+                onChange={(e)=> setProductName(e.target.value)}
+                />
+                <TextField 
+                label="Price"
+                fullWidth
+                margin='normal'
+                variant='outlined'
+                value={price}
+                onChange={(e)=> setPrice(e.target.value)}/>
+
+                <TextField 
+                label="Serial Number"
+                fullWidth
+                margin='normal'
+                variant='outlined'
+                value={productSerial}
+                onChange={(e)=> setProductSerial(e.target.value)}/>
+
+                <TextField 
+                label="Category"
                 fullWidth
                 margin='normal'
                 variant='outlined'
                 value={categoryName}
-                onChange={(e)=> setCategoryName(e.target.value)}
-                />
+                onChange={(e)=>setCategoryName(e.target.value)}/>
+
                 <Button type='submit' variant='contained' color='primary'>
                     Add 
                 </Button>
@@ -71,4 +105,4 @@ const InsertCategory = ({onCategoryAdded}) => {
     )
 }
 
-export default InsertCategory;
+export default InsertProduct;
