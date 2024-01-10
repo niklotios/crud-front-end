@@ -1,1 +1,1 @@
-This the client side of my CRUD project concerning categories and products. To run just go to the project directory on a terminal and run: " npm run dev ". Make sure that the server side (CRUD Back End) is already up and running
+This the client side of my CRUD project concerning categories and products. To run just go to the project directory on a terminal and run: "npm i" to install all dpendencies and then " npm run dev ". Make sure that the server side (CRUD Back End) is already up and running
