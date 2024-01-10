@@ -39,11 +39,13 @@ const Category = () => {
 
     return (
        
-        <Grid container direction="column" alignItems="center" justifyContent={"center"} spacing={3}>
+        <Grid container spacing={3}>
             <Navbar/>
-        <Grid item xs={12}> Category Page</Grid>
+        <Grid item xs={5}></Grid>
+        <Grid item xs={7}> This is the Category Page</Grid>
         <Grid
          item 
+         xs={6}
          className="classes.centerColumn"
          display="flex"
          justifyContent={"center"}
@@ -54,6 +56,7 @@ const Category = () => {
                     <TableRow>
                         <TableCell>Category Name</TableCell>
                         <TableCell>Action</TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -64,8 +67,11 @@ const Category = () => {
                             <Button
                             variant="contained"
                             color="error"
+                            size="small"
                             onClick={()=> handleDelete(category.categoryId)}
-                            endIcon={<DeleteIcon/>}>
+                            endIcon={<DeleteIcon/>}
+                            style={{textTransform: 'none'}}
+                            >
                                 Delete
                             </Button>
                         </TableCell>
@@ -75,7 +81,10 @@ const Category = () => {
                             component={Link}
                             to={`/showCategory/showProducts/${category.categoryName}`}
                             variant="contained"
-                            color="primary">
+                            color="primary"
+                            size="small"
+                            style={{textTransform: 'none'}}
+                            >
                             View Products
                             </Button>
                         </TableCell>
@@ -85,9 +94,10 @@ const Category = () => {
             </Table>
         </TableContainer>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={3}>
             <InsertCategory></InsertCategory>
         </Grid>
+        <Grid item xs={3}></Grid>
         <Grid item xs={6}>
             <UpdateCategory></UpdateCategory>
         </Grid>

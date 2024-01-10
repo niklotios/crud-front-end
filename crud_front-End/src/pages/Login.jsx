@@ -51,7 +51,7 @@ const Login = () => {
   
   
     return (
-      <Grid container xs={12} direction="column" alignItems="center" justifyContent={"center"} spacing={3}  >
+      <Grid container direction="column" alignItems="center" justifyContent={"center"} spacing={3}  >
         <Grid item xs={12}>
           <Typography variant="h5">Welcome to our CRUD Application</Typography>
         </Grid>

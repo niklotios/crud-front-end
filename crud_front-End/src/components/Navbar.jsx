@@ -1,4 +1,5 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import Logout from "../pages/Logout";
 
 const Navbar = () => {
     return (
@@ -7,6 +8,9 @@ const Navbar = () => {
                 <Typography variant="h6" component="div">
                     CRUD Application
                 </Typography>
+                <div style={{marginLeft: 'auto'}}>
+                    <Logout/>
+                </div>
             </Toolbar>
         </AppBar>
     )
